@@ -1,0 +1,15 @@
+spring:
+  mvc:
+    static-path-pattern: /static/**
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123
+    url: jdbc:mysql://localhost:3306/regist
+
+
+  thymeleaf:
+    cache: false
+mybatis-plus:
+  type-aliases-package: com.hon.entity
+  mapper-locations: classpath:com/hon/dao/mapper/*.xml

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/jquery-3.4.0.js"></script>
+</head>
+<body>
+<div class="wrap" align="center">
+    <h4 th:text="${msg}" style="color: red"></h4>
+    <h3>修改密码</h3>
+    <input type="text" name="username" id="username">
+    <input type="button" id="send"value="发送邮件">
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#send").click(function () {
+            var username=$("#username").val();
+            $.post("sendEmailUp",{"username":username},function (data) {
+                if(data=="1"){
+                    alert("发送成功,清查收邮箱")
+                }
+                if(data=="0"){
+                    alert("发送失败,用户不存在")
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

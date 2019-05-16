@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/jquery-3.4.0.js"></script>
+</head>
+<body>
+<div align="center">
+    <fieldset style="width:400px" >
+        <p th:text="${msg}"></p>
+        <form action="register" method="post">
+            <p>用户名: <input type="text" name="username" /></p>
+            <p>密&nbsp;&nbsp;&nbsp;&nbsp;码: <input type="text" name="password" /></p>
+            <p>手机号: <input type="text" name="phone" /></p>
+            <p>邮箱: <input type="text" name="email" class="email"/>
+                <input type="button" id="getCode"  value="发送验证码">
+            <p>验证码: <input type="text" name="code" /></p>
+            <input type="submit" value="注册">
+        </form>
+    </fieldset>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#getCode").click(function () {
+            var email= $(".email").val();
+            $.post('sendEmail',{'email':email},function (data) {
+                if(data=="1"){
+                    alert("发送成功,请查收邮箱");
+                }
+                if (data=="0"){
+                    alert("您输入的邮箱不存在,请重新输入");
+                }
+                if (data=="-1"){
+                    alert("邮箱不能为空")
+                }
+
+            },"JSON");
+        })
+    })
+</script>
+</body>
+</html>

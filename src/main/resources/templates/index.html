@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+</head>
+<body>
+<div class="wrap" align="center">
+
+<fieldset style="width:350px">
+    <h3>登录</h3><span th:text="${msg}" style="color: green"></span>
+    <form action="" method="post">
+        <p>用户名: <input type="text" name="name"/></p>
+        <p>密&nbsp;&nbsp;&nbsp;&nbsp;码: <input type="text" name="name"/></p>
+        <input type="submit" value="登录">
+        <a href="toRegist">注册</a>
+        <a href="toUpdatePWD">忘记密码</a>
+    </form>
+</fieldset>
+</div>
+
+</body>
+</html>
